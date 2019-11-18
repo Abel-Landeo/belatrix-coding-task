@@ -57,7 +57,8 @@ public class TaskUtil {
 	}
 
 	public void generateOutputFile(String dirPath, String url, List<String> matches) {
-		String fullPathFile = dirPath + File.separator + url.replace("/", "") + ".txt";
+		String cleanedUrl = url.replace("/", "").replace(":", "");
+		String fullPathFile = dirPath + File.separator + cleanedUrl + ".txt";
 		Path path = Paths.get(fullPathFile);
 		try (BufferedWriter writer = Files.newBufferedWriter(path)) 
 		{
